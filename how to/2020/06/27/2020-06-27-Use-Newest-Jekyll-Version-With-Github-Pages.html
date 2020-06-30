@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>
-    Fate of Xamarin - Chris Prather&#39;s Developer Journal
+    Use Jekyll 4.1.1 with Github Pages - Chris Prather&#39;s Developer Journal
     
   </title>
 
-  <meta name="description" content="I read some of the highlights from the Microsoft Build Keynote at Syncfusion Blog.">
+  <meta name="description" content="Use Jekyll 4.1.1 with Github Pages">
 
   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="https://cprath01.github.io/.net/multi-platform/posts/2020/06/26/2020-06-26-Fate-Of-Xamarin.html">
+  <link rel="canonical" href="https://cprath01.github.io/how%20to/2020/06/27/2020-06-27-Use-Newest-Jekyll-Version-With-Github-Pages.html">
   <link rel="alternate" type="application/rss+xml" title="Chris Prather&#39;s Developer Journal" href="/feed.xml">
 
 </head>
@@ -67,13 +67,13 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-heading">
-            <h1>Fate of Xamarin</h1>
+            <h1>Use Jekyll 4.1.1 with Github Pages</h1>
             
             <span class="meta">Posted by
-              <a href="#">Chris prather</a>
-              on June 26, 2020 &middot; <span class="reading-time" title="Estimated read time">
+              <a href="#">Chris Prather</a>
+              on June 27, 2020 &middot; <span class="reading-time" title="Estimated read time">
   
-   1 min  read </span>
+   2 mins  read </span>
 
             </span>
           </div>
@@ -86,9 +86,50 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
 
-        <p>I read some of the highlights from the <a href="https://mybuild.microsoft.com/sessions/871ef73f-f04a-405b-a0fa-01d7433067d1?source=sessions">Microsoft Build Keynote</a> at <a href="https://www.syncfusion.com/blogs/post/goodbye-xamarin-forms-hello-maui.aspx">Syncfusion Blog</a>.</p>
+        <h1 id="use-jekyll-411-with-github-pages">Use Jekyll 4.1.1 with Github Pages</h1>
 
-<p>I think this is ultimately a good thing for the future of UI development in .Net but I wonder what argument would be compelling for new developers to pick up Xamarin for the first time over next year knowing the .Net Team is transitioning to .Net Maui.</p>
+<p>So you want to take advantage of GitHub pages to build a website or blog. You notice that you can use Jekyll to build the site. You down load the latest version of Jekyll. Build the site and up load to a GitHub repo. And then … 
+Nothing happens.</p>
+
+<p>You probably ran into the same issue I did. Where at the time of this writing the latest version of <a href="https://jekyllrb.com">Jekyll</a> is 4.1.1 and according to <a href="https://pages.github.com/versions/">GitHub Pages Dependency versions page</a> the supported jekyll version is 3.8.7. So what do then.</p>
+
+<p>You have a couple of options.</p>
+<ol>
+  <li>Downgrade the local version of jekyll to the supported version.</li>
+  <li>Not use Jekyll and build static pages from scratch.</li>
+  <li>Use some other tech stack like React to render the static pages.</li>
+  <li>Use the newest version of Jekyll and copy the _site folder into your GitHub Pages Repo</li>
+</ol>
+
+<p>I did the fourth options.</p>
+
+<p>The rest of the article assumes you have Git installed, a GitHub account, some code editor(I used Visual Studio Code), and some familiarity with command line.</p>
+<h5 id="required-software">Required Software</h5>
+<ul>
+  <li><a href="https://git-scm.com/downloads">Git</a></li>
+  <li><a href="https://jekyllrb.com/docs/installation/">Jekyll</a> (follow the first two instructions)</li>
+  <li><a href="https://code.visualstudio.com/download">Visual Studio Code</a></li>
+</ul>
+
+<h5 id="pre-requisite">Pre-requisite</h5>
+<ul>
+  <li><a href="https://github.com/">Github Account</a></li>
+</ul>
+
+<h5 id="setup-instructions">Setup Instructions</h5>
+<ol>
+  <li>Setup the repository you will use for the main website. Follow the user/organization instructions at <a href="https://pages.github.com/">GitHub Pages</a></li>
+  <li>Once you have cloned the main website repository, create and clone another GitHub repository to store the jekyll site code. <a href="https://help.github.com/en/github/getting-started-with-github/create-a-repo">GitHub Instructions</a></li>
+  <li>Create a new Jekyll site in the cloned Jekyll site code repository folder with the command: <code class="language-plaintext highlighter-rouge">jekyll new mySite</code></li>
+  <li>Update the _config.yml to the information you need.</li>
+  <li>Update the index.markdown file with whatever you want on your home page.</li>
+  <li>(Optional) change theme for the site.</li>
+  <li>commit your changes to git and push to github.</li>
+  <li>Once you are ready to publish your site, run the command <code class="language-plaintext highlighter-rouge">jekyll build</code> to build the site with all the configuration from the _config.yml file.</li>
+  <li>Run this command to copy _site contents to your <code class="language-plaintext highlighter-rouge">xcopy .\_site\* {path_to_repos_from_step_1} /Y/E/H/C/I</code></li>
+</ol>
+
+<p>Those are basic instructions. Once Github updates to the version of Jekyll you are using you can move the code over an just commit changes to the main repo and GitHub should build your Jekyll site.</p>
 
 
         <hr>
@@ -96,12 +137,9 @@
         <div class="clearfix">
 
           
-          <a class="btn btn-primary float-left" href="/site-update/posts/2020/06/24/welcome-to-my-developer-journal.html" data-toggle="tooltip" data-placement="top" title="Welcome to Chris Prather's Developer Journal!">&larr; Previous<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-left" href="/.net/multi-platform/posts/2020/06/26/2020-06-26-Fate-Of-Xamarin.html" data-toggle="tooltip" data-placement="top" title="Fate of Xamarin">&larr; Previous<span class="d-none d-md-inline">
               Post</span></a>
           
-          
-          <a class="btn btn-primary float-right" href="/how%20to/2020/06/27/2020-06-27-Use-Newest-Jekyll-Version-With-Github-Pages.html" data-toggle="tooltip" data-placement="top" title="Use Jekyll 4.1.1 with Github Pages">Next<span class="d-none d-md-inline">
-              Post</span> &rarr;</a>
           
 
         </div>
