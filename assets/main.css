@@ -6,9 +6,9 @@ p a { text-decoration: underline; }
 
 h1, h2, h3, h4, h5, h6 { font-weight: 800; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
-a { color: #212529; -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; }
+a { color: blue; -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; }
 
-a:focus, a:hover { color: #0085A1; }
+a:focus, a:hover { color: blue; }
 
 blockquote { font-style: italic; color: #868e96; }
 
@@ -66,7 +66,7 @@ header.masthead .post-heading .meta a { color: #fff; }
 
 .post-preview > a { color: #212529; }
 
-.post-preview > a:focus, .post-preview > a:hover { text-decoration: none; color: #0085A1; }
+.post-preview > a:focus, .post-preview > a:hover { text-decoration: none; color: blue; }
 
 .post-preview > a > .post-title { font-size: 30px; margin-top: 30px; margin-bottom: 10px; }
 
@@ -109,5 +109,9 @@ footer .copyright { font-size: 14px; margin-bottom: 0; text-align: center; }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active { color: #fff; background-color: #00657b !important; border-color: #00657b !important; }
 
 .btn-lg { font-size: 16px; padding: 25px 35px; }
+
+li a { color: blue; text-decoration: none; }
+
+li a :focus, li a :hover { color: blue; text-decoration: underline; }
 
 /*# sourceMappingURL=main.css.map */
